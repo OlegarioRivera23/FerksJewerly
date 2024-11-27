@@ -129,3 +129,14 @@ fetch('/api/suscripciones', {
         'Content-Type': 'application/json'
     }
 });
+
+navigator.serviceWorker.ready.then(registration => {
+    return registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: 'BADAcgr5k_f9Tp-tf9mBPE95udM5MrFJAuHRg2p5wwnA7H97JMnfOFyPF7misM8qVz6otIyid8-QJdqEzT0LAhQ'
+    });
+  }).then(subscription => {
+    console.log(JSON.stringify(subscription));
+    // Envía esta información a tu servidor para usarla al enviar notificaciones
+  }).catch(err => console.error('Error al suscribirse', err));
+  

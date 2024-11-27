@@ -11,7 +11,7 @@ webPush.setVapidDetails(
     vapidKeys.privateKey
 );
 
-const subscription = {/* Objeto de suscripción del cliente */};
+const subscription = {insertarCarrito};
 
 const payload = JSON.stringify({
     title: '¡Hola!',
@@ -23,3 +23,6 @@ const payload = JSON.stringify({
 webPush.sendNotification(subscription, payload)
     .then(response => console.log('Notificación enviada:', response))
     .catch(error => console.error('Error enviando notificación:', error));
+
+
+    
