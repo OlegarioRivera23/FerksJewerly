@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+
+</head>
+<body>
+    
+    <header class="header">
+        <div class="menu container">
+            <a href="#" class="logo">logo</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="images/menu.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+            <div>
+                <ul>
+                    <li class="submenu">
+                       <img src="images/car.svg" alt="car" id="img-carrito">
+                        <div id="carrito">
+                            <table id="lista-carrito">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito" class="btn-3">Vaciar carrito</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+        <div class="header-content container">
+             <div class="header-txt">
+                 <span>Joyas para siempre</span>
+                <h1>Bienvenido</h1>
+                <p>
+                    Hola, en FerksJewerly, somos una compañía que se preocupa por la calidad,
+                    que ofrecemos en cada una de nuestras piezas para nuestros clientes, 
+                    por lo mismo, queremos que te sientas con toda la confianza, al saber
+                    nuestros productos son originales y cuentan con certificados.
+                </p>
+                <div class="buttons">
+                    <a href="#" class="bnt-1">Información</a>
+                    <a href="#" class="bnt-1">Leer más</a>
+                </div>
+            </div>
+            <div class="header-img">
+                <img src="images/bag.png" alt="">
+            </div>
+        </div>
+    </header>
+    <section class="oferts container">
+        <div class="ofert-1 b1">
+            <div class="ofert-txt">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <a href="#">Leer más</a>
+            </div>
+            <div class="ofert-img">
+                <img src="images/s1.png" alt="">
+            </div>
+        </div>
+        <div class="ofert-1 b2">
+            <div class="ofert-txt">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <a href="#">Leer más</a>
+            </div>
+            <div class="ofert-img">
+                <img src="images/s2.png" alt="">
+            </div>
+        </div>
+        <div class="ofert-1 b3">
+            <div class="ofert-txt">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <a href="#">Leer más</a>
+            </div>
+            <div class="ofert-img">
+                <img src="images/s3.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <main class="products container">
+
+        <h2>Productos</h2>
+
+        <div class="box-container" id="lista-1">
+            <div class="box">
+                <img src="images/pr1.png" alt="">
+                <div class="product-txt">
+                    <h3>Anillo Solitario</h3>
+                    <p>Aguamarina Horizontal</p>
+                    <p class="precio">$8,500.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr2.png" alt="">
+                <div class="product-txt">
+                    <h3>Ametrina</h3>
+                    <p>Anillo con Diamanetes</p>
+                    <p class="precio">$10,500.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="2">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr3.png" alt="">
+                <div class="product-txt">
+                    <h3>Anillo Multi</h3>
+                    <p>Multi 13</p>
+                    <p class="precio">$7,900.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="3">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr4.png" alt="">
+                <div class="product-txt">
+                    <h3>Anillo Multi</h3>
+                    <p>Multi 19</p>
+                    <p class="precio">$8,350.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="4">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr5.png" alt="">
+                <div class="product-txt">
+                    <h3>Churumbela Becca</h3>
+                    <p>Anillo Media</p>
+                    <p class="precio">$29,000.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="5">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr6.png" alt="">
+                <div class="product-txt">
+                    <h3>Teresa de Diamantes</h3>
+                    <p>Media Churumbela</p>
+                    <p class="precio">$8,150.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="6">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr7.png" alt="">
+                <div class="product-txt">
+                    <h3>Laura de Morganitas</h3>
+                    <p>Anillo Oro</p>
+                    <p class="precio">$6,950.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="7">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr8.png" alt="">
+                <div class="product-txt">
+                    <h3>Esther de Rubíes</h3>
+                    <p>Media Churumbela</p>
+                    <p class="precio">$11,500.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="8">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr9.png" alt="">
+                <div class="product-txt">
+                    <h3>Moonstone</h3>
+                    <p>Corte Esmeralda</p>
+                    <p class="precio">$20,000.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="9">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr10.png" alt="">
+                <div class="product-txt">
+                    <h3>Arcoiris</h3>
+                    <p>Churumbela Arcoiris</p>
+                    <p class="precio">$7,700.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="10">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr11.png" alt="">
+                <div class="product-txt">
+                    <h3>Amantista</h3>
+                    <p>Anillo de corazón</p>
+                    <p class="precio">$7,950.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="11">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pr12.png" alt="">
+                <div class="product-txt">
+                    <h3>Morgan</h3>
+                    <p>Anillo Morgan</p>
+                    <p class="precio">$8,650.00 MXN</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="12             ">
+                        Agregar al carrito
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="btn-2" id="load-more">Cargar más</div>
+
+    </main>
+
+    <section class="testimonial container">
+        <span>Testimoniales</span>
+        <h2>Que opinan nuestros clientes</h2>
+        <div class="testimonial-content">
+            <div class="testimonial-1">
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing 
+                    elit. Blanditiis illum amet necessitatibus eaque 
+                    voluptates nostrum eum, atque voluptatum impedit 
+                    accusamus ullam fugit rem deleniti iste officiis 
+                    magnam harum. Tempore, omnis!
+                </p>
+                <img src="images/starts.png" alt="">
+                <h4>Lorem ipsum dolor sit</h4>
+            </div>
+            <div class="testimonial-1">
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing 
+                    elit. Blanditiis illum amet necessitatibus eaque 
+                    voluptates nostrum eum, atque voluptatum impedit 
+                    accusamus ullam fugit rem deleniti iste officiis 
+                    magnam harum. Tempore, omnis!
+                </p>
+                <img src="images/starts.png" alt="">
+                <h4>Lorem ipsum dolor sit</h4>
+            </div>
+            <div class="testimonial-1">
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing 
+                    elit. Blanditiis illum amet necessitatibus eaque 
+                    voluptates nostrum eum, atque voluptatum impedit 
+                    accusamus ullam fugit rem deleniti iste officiis 
+                    magnam harum. Tempore, omnis!
+                </p>
+                <img src="images/starts.png" alt="">
+                <h4>Lorem ipsum dolor sit</h4>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Lorem</h3>
+                <ul>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <h3>Lorem</h3>
+                <ul>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <h3>Lorem</h3>
+                <ul>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <h3>Lorem</h3>
+                <ul>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                    <li><a href="#">lorem</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+
+    
+    <script src="script.js"></script>
+    
+</body>                                                          
+</html>
