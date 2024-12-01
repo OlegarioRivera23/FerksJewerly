@@ -370,3 +370,14 @@ h2{
         text-align: center;
     }
 }
+/* Mobile styles */
+@media (max-width: 768px) {
+    .navbar ul {
+      display: block;
+    }
+    .box-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  

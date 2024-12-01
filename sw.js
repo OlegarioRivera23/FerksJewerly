@@ -44,18 +44,19 @@ self.addEventListener("activate", (event) => {
     )
   );
 });
+
+// Manejo de notificaciones push
 self.addEventListener('push', function(event) {
-    const data = event.data ? event.data.json() : {};
-    const title = data.title || 'Nueva Notificación';
+    const data = event.data ? event.data.json() : { title: 'Nueva Notificación', body: 'Tienes un nuevo mensaje.' };
     const options = {
-        body: data.body || 'Tienes un nuevo mensaje.',
-        icon: data.icon || 'images/icon-192x192.png',
-        badge: data.badge || 'images/badge.png', // Opcional
-        data: data.url || '/' // URL a abrir cuando se hace clic
+        body: data.body,
+        icon: data.icon || '/images/icon-192x192.png',
+        badge: data.badge || '/images/badge.png', // Opcional
+        data: { url: data.url || '/' } // Datos adicionales, como URL a abrir
     };
 
     event.waitUntil(
-        self.registration.showNotification(title, options)
+        self.registration.showNotification(data.title, options)
     );
 });
 
@@ -63,9 +64,9 @@ self.addEventListener('push', function(event) {
 self.addEventListener('notificationclick', function(event) {
     event.notification.close();
 
-    const urlToOpen = event.notification.data || '/';
+    const urlToOpen = event.notification.data.url || '/';
     event.waitUntil(
-        clients.matchAll({ type: 'window' }).then(clientList => {
+        clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clientList => {
             for (const client of clientList) {
                 if (client.url === urlToOpen && 'focus' in client) {
                     return client.focus();
