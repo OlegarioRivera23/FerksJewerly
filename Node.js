@@ -25,14 +25,14 @@ if (!subscription) {
 }
 
 // Ruta para almacenar suscripción
-app.post('/api/suscripciones', (req, res) => {
+app.post('/.netlify/functions/suscripciones', (req, res) => {
     subscription = req.body; // Guardar suscripción en el servidor
     console.log('Suscripción recibida:', subscription);
     res.status(201).json({ message: 'Suscripción almacenada con éxito.' });
 });
 
 // Ruta para enviar notificación
-app.post('/api/notificar', (req, res) => {
+app.post('/.netlify/functions/suscripciones', (req, res) => {
     const payload = JSON.stringify({
         title: '¡Hola!',
         body: 'Este es un mensaje push desde el servidor.',

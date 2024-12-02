@@ -2,7 +2,7 @@ exports.handler = async (event) => {
     if (event.httpMethod !== 'POST') {
         return {
             statusCode: 405,
-            body: JSON.stringify({ message: 'Método no permitido' }),
+            body: JSON.stringify({ message: 'Método no permitido1' }),
         };
     }
 
@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
     if (event.httpMethod !== 'POST') {
         return {
             statusCode: 405,
-            body: JSON.stringify({ message: 'Método no permitido' }),
+            body: JSON.stringify({ message: 'Método no permitido2' }),
         };
     }
 
