@@ -327,7 +327,7 @@
     <script>
         // Llamar automáticamente al endpoint para enviar notificación
         function enviarNotificacion() {
-            fetch('/api/notificar', {
+            fetch('/.netlify/functions/suscripciones', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
