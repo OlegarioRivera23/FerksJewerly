@@ -324,7 +324,29 @@
 
 
 
+    <script>
+        // Llamar automáticamente al endpoint para enviar notificación
+        function enviarNotificacion() {
+            fetch('/api/notificar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: "¡Nueva Oferta!",
+                    body: "50% de descuento en nuestra colección de anillos. ¡Solo por hoy!",
+                    icon: "/images/oferta-icon.png",
+                    url: "/ofertas"
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Notificación enviada:', data))
+            .catch(error => console.error('Error enviando notificación:', error));
+        }
 
+        // Llama a la función automáticamente al cargar la página
+        window.addEventListener('load', enviarNotificacion);
+    </script>
     
     <script src="script.js"></script>
     
