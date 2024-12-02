@@ -1,0 +1,14 @@
+{
+    "name": "ferksjewerly",
+    "version": "3",
+    "description": "Aplicación para FerksJewerly con notificaciones de oferta",
+    "main": "server.js",
+    "dependencies": {
+      "express": "^4.18.2",
+      "web-push": "^3.4.4"
+    },
+    "scripts": {
+      "start": "node server.js"
+    }
+  }
+  
