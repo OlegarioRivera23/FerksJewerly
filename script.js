@@ -143,3 +143,30 @@ function urlBase64ToUint8Array(base64String) {
     }
     return outputArray;
 }
+
+
+// Datos de la notificación
+const notification = {
+    title: 'Nueva oferta',
+    body: '¡No te pierdas nuestras ofertas especiales!',
+    icon: '/images/offer-icon.png',
+};
+
+// Envía la solicitud al servidor
+fetch('/.netlify/functions/suscripciones', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ subscription, notification }),
+})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al enviar la notificación');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Notificación enviada:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
