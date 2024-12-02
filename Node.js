@@ -19,6 +19,11 @@ webPush.setVapidDetails(
 
 let subscription; // Variable para almacenar la suscripción enviada por el cliente
 
+if (!subscription) {
+    console.error('Suscripción no creada correctamente');
+    return;
+}
+
 // Ruta para almacenar suscripción
 app.post('/api/suscripciones', (req, res) => {
     subscription = req.body; // Guardar suscripción en el servidor
@@ -45,7 +50,3 @@ app.post('/api/notificar', (req, res) => {
             res.status(500).json({ error });
         });
 });
-
-// Iniciar servidor
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}`));

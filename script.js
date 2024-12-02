@@ -115,24 +115,21 @@ function solicitarPermisoNotificaciones() {
 }
 solicitarPermisoNotificaciones();
 
-function enviarSuscripcionAlServidor(subscription) {
-    fetch('/api/suscripciones', {
-        method: 'POST',
-        body: JSON.stringify(subscription),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-        .then((response) => {
-            if (response.ok) {
-                console.log('Suscripción enviada al servidor con éxito.');
-            } else {
-                console.error('Error al enviar la suscripción al servidor.');
-            }
-        })
-        .catch((error) => {
-            console.error('Error en la petición al servidor:', error);
+async function enviarSuscripcionAlServidor(subscription) {
+    try {
+        const response = await fetch('/.netlify/functions/suscripciones', {
+            method: 'POST',
+            body: JSON.stringify(subscription),
+            headers: { 'Content-Type': 'application/json' }
         });
+        if (!response.ok) {
+            throw new Error(`Error del servidor: ${response.statusText}`);
+        }
+        console.log('Suscripción enviada correctamente.');
+    } catch (error) {
+        console.error('Error al enviar la suscripción al servidor:', error);
+    }
+    
 }
 
 function urlBase64ToUint8Array(base64String) {
