@@ -44,7 +44,7 @@ function leerDatosElemento(elemento) {
         imagen: elemento.querySelector('img').src,
         titulo: elemento.querySelector('h3').textContent,
         precio: elemento.querySelector('.precio').textContent,
-        id: elemento.querySelector('a').getAttribute('data-id')
+        id: elemento.querySelector('a').getAttribute('data-id'),
     };
     insertarCarrito(infoElemento);
 }
@@ -74,6 +74,8 @@ function vaciarCarrito() {
 // ===========================
 //  Service Worker y Push
 // ===========================
+let subscription; // Variable global para almacenar la suscripción
+
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker
         .register("/sw.js")
@@ -92,10 +94,11 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                 userVisibleOnly: true,
                 applicationServerKey: urlBase64ToUint8Array(
                     'BADAcgr5k_f9Tp-tf9mBPE95udM5MrFJAuHRg2p5wwnA7H97JMnfOFyPF7misM8qVz6otIyid8-QJdqEzT0LAhQ'
-                )
+                ),
             });
         })
-        .then((subscription) => {
+        .then((sub) => {
+            subscription = sub; // Asignar la suscripción a la variable global
             console.log('Suscripción exitosa:', subscription);
             enviarSuscripcionAlServidor(subscription);
         })
@@ -120,7 +123,7 @@ async function enviarSuscripcionAlServidor(subscription) {
         const response = await fetch('/.netlify/functions/suscripciones', {
             method: 'POST',
             body: JSON.stringify(subscription),
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json' },
         });
         if (!response.ok) {
             throw new Error(`Error del servidor: ${response.statusText}`);
@@ -129,7 +132,6 @@ async function enviarSuscripcionAlServidor(subscription) {
     } catch (error) {
         console.error('Error al enviar la suscripción al servidor:', error);
     }
-    
 }
 
 function urlBase64ToUint8Array(base64String) {
@@ -144,29 +146,34 @@ function urlBase64ToUint8Array(base64String) {
     return outputArray;
 }
 
-
-// Datos de la notificación
+// Ejemplo de datos de notificación
 const notification = {
     title: 'Nueva oferta',
     body: '¡No te pierdas nuestras ofertas especiales!',
     icon: '/images/offer-icon.png',
 };
 
-// Envía la solicitud al servidor
-fetch('/.netlify/functions/suscripciones', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ subscription, notification }),
-})
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Error al enviar la notificación');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Notificación enviada:', data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+// Enviar notificación al servidor
+function enviarNotificacion() {
+    if (subscription) {
+        fetch('/.netlify/functions/suscripciones', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ subscription, notification }),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Error al enviar la notificación');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log('Notificación enviada:', data);
+            })
+            .catch((error) => {
+                console.error('Error al enviar la notificación:', error);
+            });
+    } else {
+        console.error('Suscripción no disponible. Asegúrate de estar suscrito.');
+    }
+}
